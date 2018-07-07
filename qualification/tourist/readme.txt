@@ -34,7 +34,7 @@ visit, in decreasing order of popularity.
 Constraints
 1 ≤ T ≤ 80 
 1 ≤ K ≤ N ≤ 50 
-1 ≤ V ≤ 1012 
+1 ≤ V ≤ 10^12 
 
 Explanation of Sample
 
