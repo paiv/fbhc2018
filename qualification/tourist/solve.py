@@ -8,30 +8,9 @@ def trace(*args):
     
 
 def solve_one(A, K, V):
-    res = [(0, i) for i in range(len(A))]
-    period = list()
-    period.append(list(res))
-    
-    visited = set()
-    visited.add(tuple(i for _, i in res))
-    trace(res)
-    
-    for _ in range(V - 1):
-        res[:K] = [(x + 1, i) for x, i in res[:K]]
-        res = sorted(res)
-        
-        p = tuple(i for _, i in res)
-        if p in visited:
-            trace('period', len(period), period)
-            res = period[(V - 1) % len(period)]
-            trace('res:', res)
-            break
-            
-        trace(res)
-        visited.add(p)
-        period.append(list(res))
-    
-    xs = sorted(i for _, i in res[:K])
+    N = len(A)
+    k = (K * (V - 1)) % N
+    xs = sorted((i + k) % N for i in range(K))
     return ' '.join(A[i] for i in xs)
 
 
